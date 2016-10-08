@@ -6,7 +6,14 @@
  *
  * Helper functions for Problem Set 3.
  */
-       
+ 
+ /**
+ *
+ * functions implemented by Yevgeniya Deysner
+ * j.deysner@gmail.com
+ *
+ */   
+ 
 #include <cs50.h>
 
 #include "helpers.h"
@@ -38,15 +45,13 @@ bool binarySearch(int value,int values[] , int first, int last)
  */
 bool search(int value, int values[], int n)
 {
-    // TODO: implement a searching algorithm
+    // implements a searching algorithm
     sort (values, n);
-    bool answer = binarySearch(value, values, 0, n-1);
-    return answer;
+    return binarySearch(value, values, 0, n-1);
+  
 }
 
-/**
- * Sorts array of n values.
- */
+//exchanges values in positions a and b 
 void change (int a, int b, int values[], int n)
 {
     if (values[a] > values[b])
@@ -57,6 +62,7 @@ void change (int a, int b, int values[], int n)
     }    
 }
 
+//sets in position a the lowest value from i to n
 void scan (int a, int values[], int n)
 {
     for (int i = a; i < n; i++)
@@ -65,11 +71,15 @@ void scan (int a, int values[], int n)
     }
 }
 
+/**
+ * Sorts array of n values.
+ */
 void sort(int values[], int n)
 {
-    // TODO: implement an O(n^2) sorting algorithm
+    // implements an O(n^2) sorting algorithm
     for(int i = 0; i < n; i++)
     {
+        //sets in position i the lowest value from i to n
         scan (i, values, n);
     }
     return;
